@@ -1,0 +1,7 @@
+# Persistent Minecraft data and secrets
+data/
+backup-data-*/
+
+# Docker and editor local files
+.DS_Store
+*.swp

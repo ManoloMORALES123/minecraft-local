@@ -1,0 +1,28 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: minecraft-local
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    environment:
+      # Configuraciones de Sistema
+      EULA: "TRUE"
+      VERSION: "LATEST"
+      TYPE: "VANILLA"
+      MEMORY: "2G"
+      UID: "1000"
+      GID: "1000"
+      # Apaga la validación de licencias de Microsoft
+      ONLINE_MODE: "FALSE"
+      
+      # Configuraciones de Juego (server.properties)
+      DIFFICULTY: "normal"
+      MODE: "survival"
+      MOTD: "Servidor Local"
+      VIEW_DISTANCE: "10"
+      MAX_PLAYERS: "5"
+    volumes:
+      - ./data:/data
+    restart: unless-stopped
